@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Consumers Dashboard</title>
+    <link rel="stylesheet" href="static/style.css?v={{ build_id }}" />
+    <!-- 1) load Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <h2>📊 Consumers</h2>
+    <section id="global">
+      <h3>🌐 Global Stats</h3>
+      <ul id="global-stats">
+        <!-- populated by JS -->
+      </ul>
+      
+      <div class="aggregation-controls">
+        <label for="aggregation-select">Aggregate by:</label>
+        <select id="aggregation-select">
+          <option value="none">No Aggregation (Show All Bots)</option>
+          <option value="ip_address">IP Address</option>
+          <option value="topic">Topic</option>
+          <option value="group_id">Group ID</option>
+        </select>
+      </div>
+    </section>
+
+    <section id="bots">
+      <h3>Per-Bot Stats</h3>
+      <table id="bots-table">
+        <thead>
+          <tr>
+            <th>Bot ID</th>
+            <th>IP</th>
+            <th>Processed</th>
+            <th>Failed</th>
+            <th>Received</th>
+            <th>Queue</th>
+            <th>In-Flight</th>
+            <th>Throughput</th>
+            <th>Transactions pending</th>
+            <th>Topic</th>
+            <th>Group id</th>
+            <th>Register at</th>
+            <th>Last Update</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- populated by JS -->
+        </tbody>
+      </table>
+    </section>
+
+    <!-- 2) chart container -->
+    <section id="charts">
+      <h3>📈 Throughput History</h3>
+      <canvas id="throughputLine" width="600" height="359"></canvas>
+      <h3>📊 Instant Throughput per Bot</h3>
+      <canvas id="throughputChart" width="600" height="300"></canvas>
+    </section>
+
+    <script src="static/app.js?v={{ build_id }}"></script>
+  </body>
+</html>
